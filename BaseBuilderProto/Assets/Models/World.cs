@@ -28,6 +28,24 @@ public class World
         Debug.Log($"World created with {width * height} tiles");
     }
 
+    public void RandomizeTiles()
+    {
+        for (int x = 0; x < Width; x++)
+        {
+            for (int y = 0; y < Height; y++)
+            {
+                if (Random.Range(0, 2) == 0)
+                {
+                    tiles[x, y].Type = Tile.TileType.Empty;
+                }
+                else
+                {
+                    tiles[x, y].Type = Tile.TileType.Floor;
+                }
+            }
+        }
+    }
+
     public Tile GetTileAt(int x, int y)
     {
         if (x > Width || x < 0 || y > Height || y < 0)
